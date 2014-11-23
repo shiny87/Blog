@@ -1,0 +1,53 @@
+<html lang="zh-CN">
+<head>Object oriented</head>
+<body>
+<h2>Object oriented</h2>
+<script type="text/javascript">
+
+function Animal() {
+	this.name = "No Name";
+	this.type = ["Cat", "Dog"];
+	document.write("Animal constructor called, name= "  + this.name + "</br>");
+}
+Animal.prototype.sayName = function() {
+	document.write("Say Name : " + this.name + "</br>");
+}
+Animal.prototype.addType = function(newType) {
+	this.type.push(newType);
+}
+
+function Dog() {
+	document.write("Dog constructor called, name= " + this.name + "</br>");
+}
+Dog.prototype = new Animal();
+var dog1 = new Dog();
+var dog2 = new Dog();
+
+dog1.addType("Bird");
+document.write("dog1 type is " + dog1.type + "</br>");
+document.write("dog2 type is " + dog2.type + "</br>");
+document.write("dog1.type == dog2.type, " + (dog1.type == dog2.type) + "</br>" );
+
+document.write( "Dog.prototype.constructor == Animal, " +  (Dog.prototype.constructor == Animal) + "</br>");
+document.write( "dog1.constructor == Animal,  " + (dog1.constructor == Animal) + "</br>");
+
+/*
+var ani = new Animal();
+var dog1 = new Dog();
+var dog2 = new Dog();
+dog1.sayName();
+dog2.showName();
+
+
+this.showName = function() {
+		document.write("Show Name : " + this.name + "</br>");
+	}
+document.write("ani.sayName === dog1.sayName???, " + (ani.sayName === dog1.sayName) + "<br>");
+document.write("dog1.sayName === dog2.sayName???, " + (dog1.sayName === dog2.sayName) + "<br>");
+
+document.write("ani.showName === dog1.showName???, " + (ani.showName === dog1.showName) + "<br>");
+document.write("dog1.showName === dog2.showName???, " + (dog1.showName === dog2.showName) + "<br>");
+*/
+</script>
+</body>
+</html>

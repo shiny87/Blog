@@ -1,0 +1,26 @@
+digraph OO2 {
+rankdir=LR;
+
+node [shape=record];
+
+node [ shape="record", width=.1, height=.1];  
+node [fontname = "Verdana", fontsize = 10, color="skyblue", shape="record"];  
+    
+edge [fontname = "Verdana", fontsize = 10, color="crimson", style="solid"];
+
+
+ani_table [shape=record,label="<head>Animal | { prototype | <P1>     } " ];
+ani_proto [shape=record,label="<head>Animal Prototype | { prototype | <P1> }  | { constructor  | <P2> } | { sayName | function() }"];
+
+ani_inst  [shape=record,label="ani | { prototype | <P1> }  | { constructor  | <P2> } | { name | Hello kitty}" ];
+dog_inst  [shape=record,label="cloned | { prototype | <P1> }  | { constructor  | <P2> } | { name | Hello kitty} | { sayName | function() }" ];
+
+
+ani_table:P1 -> ani_proto:head;
+ani_proto:P2 -> ani_table:head [style="dashed" color="green"];
+
+
+ani_inst:P1 -> ani_proto:head;
+ani_inst:P2 -> ani_table:head [style="dashed" color="green"];
+
+}

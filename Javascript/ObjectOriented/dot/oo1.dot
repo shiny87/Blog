@@ -1,0 +1,28 @@
+digraph OO1 {
+rankdir=LR;
+
+node [shape=record];
+
+node [ shape="record", width=.1, height=.1];  
+node [fontname = "Verdana", fontsize = 10, color="skyblue", shape="record"];  
+    
+edge [fontname = "Verdana", fontsize = 10, color="crimson", style="solid"];
+
+obj_table [shape=record,label="<head>Object | { prototype | <P1>     }"];
+obj_proto [shape=record,label="<head>Object Prototype | { prototype | null }  | {constructor|<P1>} " + 
+ " | { hasOwnProperty|function() } | { isPrototypeof|function() } | {toString|function()} | {valueof|function()} " ];
+
+ani_table [shape=record,label="<head>Animal | { prototype | <P1>     } " ];
+ani_proto [shape=record,label="<head>Animal Prototype | { prototype | <P1> }  | { constructor  | <P2> }  | { sayName | function() } "];
+ani_inst  [shape=record,label="<head>instance | { prototype | <P1> } | { constructor  | <P2> } | { name | hello kitty } "];
+
+ani_table:P1 -> ani_proto:head;
+ani_proto:P2 -> ani_table:head [style="dashed" color="green"];
+ani_inst:P1 -> ani_proto:head;
+ani_inst:P2 -> ani_table:head [style="dashed" color="green"];
+
+ani_proto:P1 -> obj_proto:head;
+obj_table:P1 -> obj_proto:head;
+obj_proto:P1 -> obj_table:head [style="dashed" color="green"];
+
+}

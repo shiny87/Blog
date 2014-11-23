@@ -1,0 +1,22 @@
+<html lang="zh-CN">
+<head>Object oriented</head>
+<body>
+<h2>Object oriented</h2>
+<script type="text/javascript">
+
+function Animal() {
+}
+function Dog() {
+}
+Dog.prototype = Animal.prototype;
+Dog.prototype.constructor = Dog;
+
+var ani = new Animal();
+var dog = new Dog();
+
+document.write(Animal.prototype.constructor == Dog.prototype.constructor);
+document.write(ani.constructor == dog.constructor);
+
+</script>
+</body>
+</html>

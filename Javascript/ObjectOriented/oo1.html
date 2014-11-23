@@ -1,0 +1,27 @@
+<html lang="zh-CN">
+<head>Object oriented</head>
+<body>
+<h2>Object oriented</h2>
+<script type="text/javascript">
+	
+	function Animal(name) {
+		this.name = name;
+		this.sayName = function() {
+			document.write(this.name + "</br>");		
+		}
+	}
+
+	function Dog(name) {
+		Animal.call(this, name);
+	}
+
+	var dog = new Dog("Wang Cai");
+	dog.sayName();
+
+	document.write("dog is Animal, " + (dog instanceof Animal) + "</br>");
+	document.write("dog is Dog, " + (dog instanceof Dog) );
+
+	document.write(Animal.prototype === Dog.prototype);
+</script>
+</body>
+</html>
